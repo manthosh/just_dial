@@ -22,6 +22,23 @@ class User(db.Model):
 	def verify_password(self, password):
 		return pwd_context.verify(password, self.password_hash)
 
+	def is_authenticated(self):
+		return True
+
+	def is_active(self):
+		return True
+
+	def is_anonymous(self):
+		return False
+
+	def get_id(self):
+		return unicode(self.id)
+
+	def is_admin(self):
+		if role == ROLE_ADMIN:
+			return True
+		return False
+
 class Category(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(20))
