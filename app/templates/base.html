@@ -8,7 +8,7 @@
   </head>
   <body>
     <div>
-      E Thakaval : 
+      E Thakaval - Welcome {{ g.user.name }} : 
       {% if g.user.is_authenticated() %}
         <a href="{{ url_for('logout') }}">Logout</a>
       {% endif %}

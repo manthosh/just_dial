@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add User</h1>
+<form action="" method="post" name="add_user">
+	{{ form.hidden_tag() }}
+	<p>
+		Name : {{ form.name(size=20) }} <br />
+		{% for error in form.errors.name %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		EMail : {{ form.user_email(size=20) }} <br/>
+		{% for error in form.errors.user_email %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		Password : {{ form.password(size=20) }} <br/>
+		{% for error in form.errors.password %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		Confirm Password : {{ form.confirm(size=20) }} <br/>
+		{% for error in form.errors.confirm %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		Role : {{ form.role() }} <br/>
+		{% for error in form.errors.role %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		{{ form.add_user() }}
+		{% for error in form.errors.add_user %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+	<p>
+		{{ form.add_shop() }}
+		{% for error in form.errors.add_shop %}
+			<span style='color : red'>[{{ error }}]</span>
+		{% endfor %} <br/>
+	</p>
+</form>
+{% endblock %}
